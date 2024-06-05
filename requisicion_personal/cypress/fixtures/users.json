@@ -1,0 +1,65 @@
+{
+  "valid": [
+    {
+      "username": "install",
+      "password": "install"
+    },
+
+    {
+      "username": "",
+      "password": ""
+    },
+
+    {
+      "username": "",
+      "password": ""
+    },
+
+    {
+      "username": "",
+      "password": ""
+    },
+
+    {
+      "username": "",
+      "password": ""
+    },
+
+    {
+      "username": "",
+      "password": ""
+    }
+  ],
+
+  "invalid": [
+    {
+      "username": "user",
+      "password": "password"
+    },
+
+    {
+      "username": "bpm",
+      "password": "bpm"
+    },
+
+    {
+      "username": "usuarioSistemas",
+      "password": "sistemas%637"
+    },
+
+    {
+      "username": "user",
+      "password": "user"
+    },
+
+    {
+      "username": "usuario",
+      "password": "password"
+    },
+
+    {
+      "username": "username",
+      "password": "Password"
+    }
+  ]
+}
