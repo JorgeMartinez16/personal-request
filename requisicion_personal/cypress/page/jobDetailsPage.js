@@ -5,37 +5,12 @@ class jobDetailsPage {
     this.url = "https://discolbpm.meteorapp.com/";
   }
 
-  fields(position, salary, campus, area, place, durationQuantity) {
+  requiredPosition(position) {
     this.getPositionField().type(position);
-    this.getSalaryField().type(salary);
-    this.getCampusFIeld().type(campus);
-    this.getAreaField().type(area);
-    this.getPlaceWorkField().type(place);
-    this.getDurationQuantity().type(durationQuantity);
   }
 
   getPositionField() {
     return cy.get("#companyPosition").should("be.visible");
-  }
-
-  getSalaryField() {
-    return cy.get("#salary").should("be.visible");
-  }
-
-  getCampusFIeld() {
-    return cy.get("#site").should("be.visible");
-  }
-
-  getAreaField() {
-    return cy.get("#area_proyect").should("be.visible");
-  }
-
-  getPlaceWorkField() {
-    return cy.get("#workPlace").should("be.visible");
-  }
-
-  getDurationQuantity() {
-    return cy.get("#durationCuantity").should("be.visible");
   }
 
   homePage() {
@@ -43,6 +18,18 @@ class jobDetailsPage {
   }
 
   fieldsWithOptions() {
+    cy.get("#site").click({ force: true });
+    cy.get('.ant-select-item-option[title="BOLIVAR"]').click({ force: true });
+
+    cy.get("#area_proyect").click();
+    cy.get('.ant-select-item-option[title="CONTROL INTERNO"]').click({
+      force: true,
+    });
+
+    cy.get("#workPlace").click();
+    cy.get(".ant-select-selection-item");
+    cy.contains("TURBACO").click({ force: true });
+
     cy.get("#workingDayType").click();
     cy.get(".ant-select-selection-search-input");
     cy.contains("Tiempo completo").click({ force: true });
@@ -55,9 +42,36 @@ class jobDetailsPage {
     cy.get(".ant-select-selection-search-input");
     cy.contains("Nuevo cargo").click({ force: true });
 
-    cy.get("#durationTimePart").click();
+    /* cy.get("#durationTimePart").click();
     cy.get(".ant-select-item-option-content");
-    cy.contains("mes").click({ force: true });
+    cy.contains("mes").click({ force: true }); */
+  }
+
+  vacancies(quantity) {
+    this.getVacanciesField().type(quantity);
+  }
+
+  getVacanciesField() {
+    return cy.get("#vacancies")
+    .scrollIntoView()
+    .should("be.visible");
+  }
+
+  salaryField(SalaryqQantity) {
+    this.getSalaryField().type(SalaryqQantity);
+  }
+
+  getSalaryField() {
+    //hacenmos que el elemento se desplace a la vista antes de interactuar con él
+    return cy.get("#salary").scrollIntoView().should("be.visible");
+  }
+
+  /* durationQuantity(duracion) {
+    this.getDurationQuantity().type(duracion);
+  } */
+
+  getDurationQuantity() {
+    return cy.get("#durationCuantity").should("be.visible");
   }
 
   pressNextButton() {

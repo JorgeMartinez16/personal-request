@@ -1,6 +1,6 @@
 class LoginPage {
   constructor() {
-    this.url = "https://discolbpm.meteorapp.com/";
+    this.url = "https://discolbpmtest.meteorapp.com/";
   }
 
   homePage() {
@@ -22,29 +22,15 @@ class LoginPage {
   }
 
   getUserNameField() {
-    return cy
-      .get(
-        ".react-responsive-modal-container.react-responsive-modal-containerCenter"
-      )
-      .find('.login-box input[name="txt"]')
-      .should("be.visible");
+    return cy.get("#username").should("be.visible");
   }
 
   getPasswordField() {
-    return cy
-      .get(
-        ".react-responsive-modal-container.react-responsive-modal-containerCenter"
-      )
-      .find('.login-box input[name="pswd"]')
-      .should("be.visible");
+    return cy.get("#password").should("be.visible");
   }
 
   getLoginButtonField() {
-    return cy
-      .get(
-        ".react-responsive-modal-container.react-responsive-modal-containerCenter"
-      )
-      .contains("Entrar");
+    return cy.get(".login-button").contains("Entrar");
   }
 
   logoff() {

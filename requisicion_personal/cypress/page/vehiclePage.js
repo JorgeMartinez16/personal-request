@@ -17,21 +17,25 @@ class vehiclePage {
     cy.get("#request-vehicle-button").click({ force: true });
   }
 
-  completeVehicleFields(vehicleType, license, bearingValue) {
-    this.getVehicleTypeField().type(vehicleType);
-    this.getLicenseField().type(license);
-    this.getBearingValueField().type(bearingValue);
+  vehicleType() {
+    cy.get("#vehicleType").click({ force: true });
+    cy.get(".ant-select-item-option-content")
+      .contains("MOTOCICLETA")
+      .click({ force: true });
   }
 
-  getVehicleTypeField() {
-    return cy.get("#vehicleType").should("be.visible");
+  licenceType() {
+    cy.get("#licenceType").click({ force: true });
+    cy.get(".ant-select-item-option-content")
+      .contains("A2")
+      .click({ force: true });
   }
 
-  getLicenseField() {
-    return cy.get("#licenceType").should("be.visible");
+  bearingValue(value) {
+    this.getBearingValue().type(value);
   }
 
-  getBearingValueField() {
+  getBearingValue() {
     return cy.get("#bearingValue").should("be.visible");
   }
 

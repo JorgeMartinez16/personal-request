@@ -5,10 +5,10 @@ export default class basePage {
   }
 
   homePage() {
-    cy.visit("https://discolbpm.meteorapp.com/");
+    cy.visit("https://discolbpmtest.meteorapp.com/");
   }
 
   holdon() {
-    cy.wait(2000);
+    cy.wait(5000);
   }
 }

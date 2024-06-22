@@ -16,11 +16,5 @@ class requerimentsPage {
       .contains("Siguiente")
       .click({ force: true });
   }
-
-  clickSwitch() {
-    cy.get(".ant-switch.css-1wrgcox").each(($el) => {
-      cy.wrap($el).click();
-    });
-  }
 }
 export default requerimentsPage;

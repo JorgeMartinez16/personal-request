@@ -1,8 +1,8 @@
-import jobDetailsPage from "../page/jobDetailsPage";
-import dashboardPage from "../page/dashboardPage";
-import basePage from "../page/basePage";
-import vehiclePage from "../page/vehiclePage";
-import loginPage from "../page/loginPage";
+import jobDetailsPage from "../../page/jobDetailsPage";
+import dashboardPage from "../../page/dashboardPage";
+import basePage from "../../page/basePage";
+import vehiclePage from "../../page/vehiclePage";
+import loginPage from "../../page/loginPage";
 
 describe("vehicle request test", () => {
   const base = new basePage();
@@ -12,26 +12,22 @@ describe("vehicle request test", () => {
   const vehicle = new vehiclePage();
 
   beforeEach(() => {
-    cy.visit("https://discolbpm.meteorapp.com/");
-    page.openLoginModal();
+    cy.visit("https://discolbpmtest.meteorapp.com/");
     page.login("lider-sistemas", "lider2024.");
     dashboard.selectMenuItem();
     dashboard.selectRequestEmployee();
-    jobDetails.fields(
-      "analista de sistemas",
-      "1835000",
-      "campus",
-      "sistemas",
-      "lugar de trabajo",
-      "8"
-    );
+    jobDetails.requiredPosition("Gestor");
     jobDetails.fieldsWithOptions();
+    jobDetails.durationQuantity("9");
+    jobDetails.salaryField("1600000");
     jobDetails.pressNextButton();
   });
 
   it("complete vehicles fields", () => {
     vehicle.clickRequestVehicleButton();
-    vehicle.completeVehicleFields("motocicleta", "a1", "400000");
+    vehicle.vehicleType();
+    vehicle.licenceType();
+    vehicle.bearingValue("400000");
     vehicle.pressNextButton();
   });
 });
